@@ -1,0 +1,29 @@
+{
+    "name": "@ffg/ffgwbs",
+    "version": "1.0.0",
+    "description": "Webiste der FF Gemeinlebarn",
+    "homepage": "https://www.ff-gemeinlebarn.at",
+    "bugs": {
+        "url": "https://github.com/ffgemeinlebarn/ffgwbs/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ffgemeinlebarn/ffgwbs.git"
+    },
+    "license": "UNLICENSED",
+    "author": {
+        "name": "Jakob Vesely",
+        "email": "contact@jakob.fyi",
+        "url": "https://www.jakob.fyi"
+    },
+    "scripts": {
+        "build:development": "parcel serve src/index.html --dist-dir public",
+        "build:production": "parcel build src/index.html --dist-dir public --no-source-maps",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@parcel/transformer-sass": "^2.16.4",
+        "parcel": "^2.16.4",
+        "prettier": "^3.8.4"
+    }
+}

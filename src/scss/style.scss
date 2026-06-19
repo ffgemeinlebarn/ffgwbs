@@ -1,0 +1,247 @@
+@use "font";
+@use "social-button";
+
+:root {
+    --ffg-font-family: "Jost", "Inter", sans-serif;
+    --ffg-default-radius: 0.5rem;
+    --ffg-font-weight-bold: 500;
+
+    --ffg-color-primary: rgb(154, 52, 40);
+    --ffg-color-secondary: rgb(127, 48, 38);
+    --ffg-color-primary-variant: rgba(144, 93, 87, 0.7);
+
+    --ffg-layout-width-inner: 960px;
+    --ffg-layout-width-outer: 1280px;
+    --ffg-layout-width-full: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: var(--ffg-font-family);
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background-color: #f9f9f9;
+    font-size: 20px;
+
+    p {
+        text-align: justify;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+
+        strong {
+            font-weight: var(--ffg-font-weight-bold);
+        }
+
+        a {
+            color: var(--ffg-color-primary);
+            text-decoration: none;
+            background-image: linear-gradient(currentColor, currentColor);
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 2px;
+            transition: background-size cubic-bezier(0, 0.5, 0, 1) 0.3s;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                background-size: 100% 2px;
+            }
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: var(--ffg-font-weight-bold);
+        color: var(--ffg-color-primary);
+        margin-top: 1rem;
+        margin-bottom: 0.35rem;
+    }
+}
+
+// Layout
+header,
+section,
+footer {
+    width: 100%;
+    max-width: var(--ffg-layout-width-outer);
+    margin: 0 auto;
+    padding: 1.5rem;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    article {
+        width: 100%;
+        max-width: var(--ffg-layout-width-inner);
+        margin: 0 auto;
+    }
+
+    *[size="inner"] {
+        width: 100%;
+        max-width: var(--ffg-layout-width-inner);
+        margin: 0 auto;
+    }
+
+    *[size="outer"] {
+        width: 100%;
+        max-width: var(--ffg-layout-width-outer);
+        margin: 0 auto;
+    }
+}
+
+// Components
+@mixin box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: var(--ffg-default-radius);
+    border: 1px solid #eee;
+    transition: all ease 300ms;
+    text-decoration: none;
+
+    &:hover:is(a) {
+        cursor: pointer;
+        background-color: var(--ffg-color-primary);
+        border-color: var(--ffg-color-secondary);
+    }
+}
+
+// Sections
+#hero {
+    padding-top: 3rem;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+
+        #hero-logo {
+            display: block;
+            width: 100%;
+            max-width: 180px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: var(--ffg-font-weight-bold);
+            text-align: center;
+        }
+    }
+
+    #social-row {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+
+        .social-btn {
+            background-color: #fff;
+        }
+    }
+}
+
+#about {
+    figure#mannschaft {
+        margin-block-start: 1.5rem;
+        margin-block-end: 1.5rem;
+        img {
+            width: 100%;
+            border-radius: var(--ffg-default-radius);
+        }
+
+        figcaption {
+            color: #777;
+        }
+    }
+}
+
+#contact {
+    .contact-list {
+        --gap: 1rem;
+
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: var(--gap);
+        flex-wrap: wrap;
+
+        li {
+            width: calc(50% - var(--gap) / 2);
+            a {
+                @include box;
+
+                h4 {
+                    color: var(--ffg-color-secondary);
+                    font-size: 1em;
+                    margin: 0;
+                    text-align: left;
+                }
+
+                p {
+                    font-size: 0.8em;
+                    color: #555;
+                    margin: 0;
+                    text-align: left;
+                }
+
+                &:hover {
+                    h4 {
+                        color: #fff;
+                    }
+
+                    p {
+                        color: #eee;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#spenden {
+    .bankverbindung {
+        @include box;
+        margin-top: 1rem;
+
+        p {
+            margin: 0;
+            text-align: left;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #hero #social-row {
+        flex-direction: column;
+    }
+    #contact .contact-list {
+        flex-direction: column;
+
+        li {
+            width: 100%;
+        }
+    }
+}

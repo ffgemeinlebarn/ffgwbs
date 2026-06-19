@@ -1,0 +1,5 @@
+{
+    "emmet.triggerExpansionOnTab": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "cSpell.enabled": false
+}

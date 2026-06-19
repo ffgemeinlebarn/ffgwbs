@@ -1,0 +1,52 @@
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.58rem 1.1rem;
+    border-radius: 8px;
+    font-weight: var(--ffg-font-weight-bold);
+    text-decoration: none;
+    transition: all 0.22s;
+    border: 1px solid;
+    font-family: inherit;
+    cursor: pointer;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+    }
+
+    &.btn-wa {
+        color: #25a244;
+        border-color: rgba(37, 162, 68, 0.3);
+        background: rgba(37, 162, 68, 0.07);
+
+        &:hover {
+            background: rgba(37, 162, 68, 0.14);
+            border-color: rgba(37, 162, 68, 0.55);
+        }
+    }
+
+    &.btn-fb {
+        color: #1877f2;
+        border-color: rgba(24, 119, 242, 0.3);
+        background: rgba(24, 119, 242, 0.07);
+
+        &:hover {
+            background: rgba(24, 119, 242, 0.14);
+            border-color: rgba(24, 119, 242, 0.5);
+        }
+    }
+
+    &.btn-ig {
+        color: #c13584;
+        border-color: rgba(193, 53, 132, 0.3);
+        background: rgba(193, 53, 132, 0.06);
+
+        &:hover {
+            background: rgba(193, 53, 132, 0.12);
+            border-color: rgba(193, 53, 132, 0.45);
+        }
+    }
+}
